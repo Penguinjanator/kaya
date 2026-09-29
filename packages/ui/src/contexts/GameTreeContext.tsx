@@ -91,7 +91,7 @@ export const GameTreeProvider: React.FC<{
     filename,
     setFilename,
     isDirty: isTreeDirty,
-    setIsDirty: setTreeDirty,
+    markClean: markTreeClean,
     isInitialized,
   } = useGameTreeState();
 
@@ -182,7 +182,6 @@ export const GameTreeProvider: React.FC<{
     editTool,
     stoneToolColor,
     currentBoard,
-    setIsDirty: setTreeDirty, // Use tree-only dirty for modifications
   });
 
   // 6. Scoring
@@ -260,7 +259,7 @@ export const GameTreeProvider: React.FC<{
       coreLoadSGFAsync,
       coreCreateNewGame,
       isTreeDirty,
-      setTreeDirty,
+      markTreeClean,
       clearHistory,
       isInitialized,
     });
