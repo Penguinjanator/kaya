@@ -547,7 +547,8 @@ impl OnnxEngine {
                     value = filtered.win_rate as f64;
                     score_lead = filtered.score_lead as f64;
 
-                    // Accumulate ownership
+                    // Average ownership over every evaluated node, like KataGo's tree-averaged
+                    // ownership: it predicts final territory, so deeper positions refine it.
                     if let Some(ref own) = filtered.ownership {
                         for (i, &v) in own.iter().enumerate().take(board_area) {
                             ownership_sum[i] += v as f64;

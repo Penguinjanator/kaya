@@ -232,7 +232,8 @@ export async function runMCTS(
         value = filtered.winRate;
         scoreLead = filtered.scoreLead;
 
-        // Accumulate ownership at the root level
+        // Average ownership over every evaluated node, like KataGo's tree-averaged
+        // ownership: it predicts final territory, so deeper positions refine it.
         if (filtered.ownership) {
           for (let i = 0; i < boardArea; i++) {
             ownershipSum[i] += filtered.ownership[i];
